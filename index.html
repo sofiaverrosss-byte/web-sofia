@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sofia's Gym | Moaña - Fuerza y Pasión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              redCustom: '#e63946',
+            },
+            fontFamily: {
+              oswald: ['Oswald', 'sans-serif'],
+              roboto: ['Roboto', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        scroll-behavior: smooth;
+      }
+      h1, h2, h3, .nav-link {
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+      }
+      .pricing-card {
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .social-btn {
+        transition: width 0.3s ease, background-color 0.3s ease;
+      }
+      .social-btn span {
+        max-width: 0;
+        opacity: 0;
+        transition: max-width 0.3s ease, opacity 0.3s ease, margin-left 0.3s ease;
+      }
+      .social-btn:hover span {
+        max-width: 100px;
+        opacity: 1;
+        margin-left: 8px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

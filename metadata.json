@@ -1,0 +1,7 @@
+{
+  "name": "Sofia's Gym Moaña - High Performance Training",
+  "description": "A premium fitness experience in Moaña. High-end equipment, professional coaching, and a community dedicated to excellence.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
