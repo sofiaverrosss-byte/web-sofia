@@ -3,9 +3,10 @@ import React from 'react';
 
 interface HeroProps {
   onPlanesClick: () => void;
+  onServicesClick: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onPlanesClick }) => {
+const Hero: React.FC<HeroProps> = ({ onPlanesClick, onServicesClick }) => {
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center text-center text-white px-4 overflow-hidden">
       {/* Background Image with Overlay */}
@@ -33,12 +34,12 @@ const Hero: React.FC<HeroProps> = ({ onPlanesClick }) => {
           >
             VER PLANES
           </button>
-          <a 
-            href="#servicios" 
+          <button 
+            onClick={onServicesClick}
             className="border-2 border-white px-10 py-4 rounded font-bold text-lg hover:bg-redCustom hover:border-redCustom transition duration-300 backdrop-blur-sm"
           >
             SERVICIOS
-          </a>
+          </button>
         </div>
       </div>
 

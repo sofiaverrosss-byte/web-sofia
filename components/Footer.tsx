@@ -1,7 +1,11 @@
 
 import React from 'react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onFAQClick: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onFAQClick }) => {
   const currentYear = new Date().getFullYear();
   
   return (
@@ -30,8 +34,12 @@ const Footer: React.FC = () => {
               <h5 className="text-gray-400">Soporte</h5>
               <ul className="space-y-2 text-gray-200 font-normal">
                 <li><a href="#contacto" className="hover:text-redCustom transition">Contacto</a></li>
-                <li><a href="#" className="hover:text-redCustom transition">Preguntas Frecuentes</a></li>
-                <li><a href="#" className="hover:text-redCustom transition">Precios</a></li>
+                <li>
+                  <button onClick={onFAQClick} className="hover:text-redCustom transition text-left uppercase tracking-widest font-bold text-xs">
+                    Preguntas Frecuentes
+                  </button>
+                </li>
+                <li><a href="#cuotas" className="hover:text-redCustom transition">Precios</a></li>
               </ul>
             </div>
             <div className="hidden sm:block space-y-4">

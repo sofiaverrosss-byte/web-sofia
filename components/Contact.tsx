@@ -2,7 +2,11 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Clock, Instagram, Facebook, Send, Check } from 'lucide-react';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  onSocialClick: (platform: string) => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ onSocialClick }) => {
   const [formStatus, setFormStatus] = useState<'idle' | 'loading' | 'success'>('idle');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,18 +57,27 @@ const Contact: React.FC = () => {
           <div className="mt-12">
             <h4 className="font-bold mb-6 font-oswald uppercase tracking-widest text-sm text-gray-500">Síguenos</h4>
             <div className="flex flex-wrap gap-4">
-              <a href="#" className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap">
+              <button 
+                onClick={() => onSocialClick('instagram')}
+                className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap"
+              >
                 <Instagram className="w-5 h-5 shrink-0" />
                 <span className="font-bold uppercase text-xs">Instagram</span>
-              </a>
-              <a href="#" className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap">
+              </button>
+              <button 
+                onClick={() => onSocialClick('facebook')}
+                className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap"
+              >
                 <Facebook className="w-5 h-5 shrink-0" />
                 <span className="font-bold uppercase text-xs">Facebook</span>
-              </a>
-              <a href="#" className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap">
+              </button>
+              <button 
+                onClick={() => onSocialClick('tiktok')}
+                className="social-btn flex items-center justify-center h-12 bg-black text-white rounded-full px-4 group hover:bg-redCustom overflow-hidden whitespace-nowrap"
+              >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/></svg>
                 <span className="font-bold uppercase text-xs">TikTok</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -73,7 +86,6 @@ const Contact: React.FC = () => {
           {formStatus === 'success' ? (
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
               <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                {/* Fixed: Added Check to lucide-react imports above */}
                 <Check className="w-10 h-10" />
               </div>
               <h3 className="text-3xl font-bold font-oswald uppercase">¡Mensaje Enviado!</h3>
