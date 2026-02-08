@@ -6,7 +6,7 @@ export class FitnessAIService {
 
   constructor() {
     // Initializing with the exact named parameter and process.env.API_KEY directly as required
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    this.ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
   }
 
   async getFitnessAdvice(userMessage: string) {
